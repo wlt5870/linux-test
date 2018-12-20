@@ -18,7 +18,6 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
-        dd($request);
         $credentials = request(['name', 'password']);
 
         if (! $token = JWTAuth::attempt($credentials)) {
@@ -30,7 +29,7 @@ class LoginController extends Controller
 
     public function logout()
     {
-        JWTAuth::invalidate();
+        JWTAuth::parseToken()->invalidate();
 
         return response()->json(['message' => 'Successfully logged out']);
     }
@@ -42,7 +41,8 @@ class LoginController extends Controller
 
     public function me()
     {
-        return response()->json(auth()->user());
+        //return response()->json(auth()->user());
+        return response()->json(JWTAuth::parseToken()->touser());
     }
 
     protected function respondWithToken($token)
@@ -50,7 +50,7 @@ class LoginController extends Controller
         return response()->json([
             'access_token' => $token,
             'token_type' => 'bearer',
-            'expires_in' => auth()->factory()->getTTL() * 60
+            'expires_in' => auth('api')->factory()->getTTL() * 60
         ]);
     }
 }

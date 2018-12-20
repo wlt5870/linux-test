@@ -18,8 +18,8 @@ use Illuminate\Http\Request;
 //});
 
 Route::group([
-    'middleware' => 'auth:api',
     'namespace' =>'Auth',
+    'prefix' => 'auth'
 ], function ($router) {
     Route::post('login', 'LoginController@login');
     Route::post('logout', 'LoginController@logout');
