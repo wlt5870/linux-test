@@ -48,7 +48,7 @@ class LoginController extends Controller
     {
         $github_user = Socialite::driver('github')->user();
 
-        $user = User::updateOrCreate(['from_platform'=>$github_user->provider, 'email' => $github_user->email], [
+        $user = User::updateOrCreate(['email' => $github_user->email], [
             'email' => $github_user->email,
             'from_platform' => $github_user->provider,
             'name' => $github_user->username,
