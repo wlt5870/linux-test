@@ -42,7 +42,7 @@ return [
     'github' => [
         'client_id'     => '43a3d281345d72803ffc',
         'client_secret' => 'c776c7b64487b2481c9e98510963aef338621373',
-        'redirect'      => 'http://linux-test.com/oauth/github/callback',
+        'redirect'      => env('APP_URL') . '/oauth/github/callback',
     ]
 
 ];
