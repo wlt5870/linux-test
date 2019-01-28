@@ -80,12 +80,12 @@
             @endif
 
             <div class="content">
-                <div class="title m-b-md">
-                    hello
-                </div>
+                {{--<div class="title m-b-md">--}}
+                    {{--hello--}}
+                {{--</div>--}}
 
                 <div class="links">
-                   
+                     <a href="{{route('github-login')}}">github-login</a>
                 </div>
             </div>
         </div>

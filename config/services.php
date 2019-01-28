@@ -39,5 +39,10 @@ return [
             'tolerance' => env('STRIPE_WEBHOOK_TOLERANCE', 300),
         ],
     ],
+    'github' => [
+        'client_id'     => '43a3d281345d72803ffc',
+        'client_secret' => 'c776c7b64487b2481c9e98510963aef338621373',
+        'redirect'      => 'http://linux-test.com/oauth/github/callback',
+    ]
 
 ];

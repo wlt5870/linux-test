@@ -20,6 +20,9 @@ Auth::routes(['verify' => true]);
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/t',function (){
-   return ['echo'];
+   dd(current_auth()->user(),user(),is_guest(),current_auth());
 })->name('home');
+
+Route::get('/oauth/github', 'Auth\LoginController@redirectToProvider')->name('github-login');
+Route::get('/oauth/github/callback', 'Auth\LoginController@handleProviderCallback')->name('github-callback');
 

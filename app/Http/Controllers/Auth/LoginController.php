@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\User;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Overtrue\LaravelSocialite\Socialite;
 
 class LoginController extends Controller
 {
@@ -35,5 +37,27 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+    public function redirectToProvider()
+    {
+        return Socialite::driver('github')->redirect();
+    }
+
+    public function handleProviderCallback()
+    {
+        $github_user = Socialite::driver('github')->user();
+
+        $user = User::updateOrCreate(['from_platform'=>$github_user->provider, 'email' => $github_user->email], [
+            'email' => $github_user->email,
+            'from_platform' => $github_user->provider,
+            'name' => $github_user->username,
+            'password' => '',
+            'platform_params' => $github_user->toarray(),
+        ]);
+
+        $this->guard()->login($user);
+
+        return redirect()->intended($this->redirectPath());
     }
 }
