@@ -53,6 +53,7 @@ class LoginController extends Controller
             'from_platform' => $github_user->provider,
             'name' => $github_user->username,
             'password' => '',
+            'avatar' => $github_user->avatar,
             'platform_params' => $github_user->toarray(),
         ]);
 
