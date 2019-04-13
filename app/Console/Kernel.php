@@ -25,7 +25,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
          $schedule->call(function(){
-             file_put_contents(app_path(). 'command.txt', '23', FILE_APPEND);
+             file_put_contents(app_path(). DIRECTORY_SEPARATOR .'command.txt', '23', FILE_APPEND);
          })
                   ->everyMinute();
     }
