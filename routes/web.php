@@ -20,7 +20,7 @@ Auth::routes(['verify' => true]);
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/t',function (){
-   dd(current_auth()->user(),user(),is_guest(),current_auth());
+   dd(app_path());
 })->name('home');
 
 Route::get('/oauth/github', 'Auth\LoginController@redirectToProvider')->name('github-login');
