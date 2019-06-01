@@ -43,6 +43,16 @@ return [
         'client_id'     => '43a3d281345d72803ffc',
         'client_secret' => 'c776c7b64487b2481c9e98510963aef338621373',
         'redirect'      => env('APP_URL') . '/oauth/github/callback',
+    ],
+    'wechat' => [
+        'client_id'     => 'wxe72f52234dff5914',
+        'client_secret' => '8f86264ffa3c610e956889253cc00fc6',
+        'redirect'      => env('APP_URL') . '/oauth/github/callback',
+    ],
+    'weibo' => [
+        'client_id'     => '3405113331',
+        'client_secret' => 'c7aafc5d2970fcd6c09a760ad942f81f',
+        'redirect'      => env('APP_URL') . '/weibo/callback',
     ]
 
 ];

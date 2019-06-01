@@ -26,3 +26,10 @@ Route::get('/t',function (){
 Route::get('/oauth/github', 'Auth\LoginController@redirectToProvider')->name('github-login');
 Route::get('/oauth/github/callback', 'Auth\LoginController@handleProviderCallback')->name('github-callback');
 
+
+Route::get('/oauth/wechat', 'Auth\LoginController@wechatRedirectToProvider')->name('wechat-login');
+Route::get('/oauth/wechat/callback', 'Auth\LoginController@handleProviderCallback')->name('wechat-callback');
+
+//Route::get('/oauth/weibo', 'Auth\LoginController@weiboRedirectToProvider')->name('weibo-login');
+//Route::get('/weibo/callback', 'Auth\LoginController@weiboHandleProviderCallback')->name('weibo-callback');
+//Route::get('/weibo/cancel-callback', 'Auth\LoginController@weiboHandleProviderCancelCallback')->name('weibo-cancel-callback');

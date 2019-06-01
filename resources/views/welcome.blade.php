@@ -87,6 +87,13 @@
                 <div class="links">
                      <a href="{{route('github-login')}}">github-login</a>
                 </div>
+
+                <div class="links">
+                    <a href="{{route('wechat-login')}}">wechat-login</a>
+                </div>
+                <div class="links">
+                    <a href="{{route('weibo-login')}}">weibo-login</a>
+                </div>
             </div>
         </div>
     </body>
